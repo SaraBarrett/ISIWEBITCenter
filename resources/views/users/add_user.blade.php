@@ -1,16 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.main')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <h2>Olá,aqui podes adicionar um utilizador</h2>
-</head>
-
-<body>
-
-</body>
-
-</html>
+@section('content')
+    <h2>Aqui adicionas utilizadores</h2>
+@endsection

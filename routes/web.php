@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,10 +18,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/home', function () {
-    $hello = 'Hello World';
-    return view('general.home', compact('hello'));
-})->name('home');
+Route::get('/home', [HomeController::class, 'getMain'])->name('home');
+
+
+
 
 Route::get('/all-users', function () {
     return view('users.all_users');
