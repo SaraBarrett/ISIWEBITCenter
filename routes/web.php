@@ -18,15 +18,24 @@ Route::get('/', function () {
 });
 
 Route::get('/home', function () {
-
     $hello = 'Hello World';
     return view('general.home', compact('hello'));
-});
+})->name('home');
 
 Route::get('/all-users', function () {
     return view('users.all_users');
 })->name('users.all');
 
+Route::get('/add-user', function () {
+    return view('users.add_user');
+})->name('users.add');
+
 Route::get('/hello', function () {
     return '<h2>Hello Turma SD</h2>';
 })->name('cucu');
+
+
+//rota fallback (em vez do erro 404)
+Route::fallback(function(){
+    return view ('errors.fallback');
+});
