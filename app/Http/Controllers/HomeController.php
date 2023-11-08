@@ -9,7 +9,11 @@ class HomeController extends Controller
 
     public function getMain(){
         $hello = 'Hello World';
-
+        $weekDays = [
+          'Segunda',
+          'Terça',
+          'Quarta'
+         ];
         /*$weekDays = [
            ['Python', 'Isi'],
            ['r', 'd'],
@@ -17,7 +21,7 @@ class HomeController extends Controller
         ];*/
 
 
-        dd($weekDays[0]);
+        //dd($weekDays[0]);
 
         return view('general.home', compact(
             'hello',
