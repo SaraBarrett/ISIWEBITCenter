@@ -12,7 +12,9 @@ class UserController extends Controller
 
         ///dd($cesaeInfo);
 
-        return view('users.all_users');
+        return view('users.all_users',
+        compact('cesaeInfo'
+    ));
     }
 
     public function addUser(){

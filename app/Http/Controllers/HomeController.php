@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -14,6 +15,12 @@ class HomeController extends Controller
           'Terça',
           'Quarta'
          ];
+
+        $users =DB::table('users')
+        //->whereNotNull('address')
+        ->first();
+
+        dd(   $users);
         /*$weekDays = [
            ['Python', 'Isi'],
            ['r', 'd'],
