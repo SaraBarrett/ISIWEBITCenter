@@ -10,17 +10,22 @@ class HomeController extends Controller
 
     public function getMain(){
         $hello = 'Hello World';
+
         $weekDays = [
           'Segunda',
           'Terça',
           'Quarta'
          ];
 
-        $users =DB::table('users')
-        //->whereNotNull('address')
+        $user =DB::table('users')
+        ->where('id', 2)
         ->first();
 
-        dd(   $users);
+        $users = $this->getAllUsers();
+
+
+
+
         /*$weekDays = [
            ['Python', 'Isi'],
            ['r', 'd'],
@@ -32,7 +37,19 @@ class HomeController extends Controller
 
         return view('general.home', compact(
             'hello',
-            'weekDays'
+            'weekDays',
+            'user',
+            'users'
         ));
     }
+
+    protected function getAllUsers(){
+        $users = db::table('users')
+                ->get();
+
+        return $users;
+
+    }
+
+
 }

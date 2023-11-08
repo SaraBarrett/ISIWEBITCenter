@@ -12,11 +12,23 @@
                 <li>Adicionar Utilizador</li>
             </a>
         </ul>
-       {{-- {{ $hello }} --}}
+        {{-- {{ $hello }} --}}
         <ul>
             @foreach ($weekDays as $day)
                 <li> {{ $day }}</li>
             @endforeach
         </ul>
+    </div>
+    <div>
+        <h4>Dados da Eva</h4>
+        <h6>{{ $user->name }}</h6>
+        <h6>{{ $user->password }}</h6>
+
+        <ul>
+            @foreach ($users as $item)
+                <li>{{ $item->name }} - {{ $item->password }}</li>
+            @endforeach
+        </ul>
+
     </div>
 @endsection
