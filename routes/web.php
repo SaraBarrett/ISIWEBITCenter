@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,15 +22,12 @@ Route::get('/', function () {
 Route::get('/home', [HomeController::class, 'getMain'])->name('home');
 
 
+Route::get('/all-users', [UserController::class, 'getAllUsers'] )->name('users.all');
+Route::get('/add-user', [UserController::class, 'addUser'])->name('users.add');
 
 
-Route::get('/all-users', function () {
-    return view('users.all_users');
-})->name('users.all');
 
-Route::get('/add-user', function () {
-    return view('users.add_user');
-})->name('users.add');
+
 
 Route::get('/hello', function () {
     return '<h2>Hello Turma SD</h2>';

@@ -54,7 +54,7 @@
             </div>
         </div>
     </nav>
-    <h1>Hello, world!</h1>
+    <!--<h1>Hello, world!</h1>-->
 
     @yield('content')
     <footer class="fixed-bottom">Eu sou um footer</footer>
