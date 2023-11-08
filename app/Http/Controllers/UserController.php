@@ -3,17 +3,20 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
     public function getAllUsers(){
 
         $cesaeInfo = $this->getCesaeInfo();
+        $users = $this->allUsers();
 
         ///dd($cesaeInfo);
 
         return view('users.all_users',
-        compact('cesaeInfo'
+        compact('cesaeInfo',
+        'users'
     ));
     }
 
@@ -32,5 +35,13 @@ class UserController extends Controller
 
 
         return $cesaeInfo;
+    }
+
+    protected function allUsers(){
+        $users = db::table('users')
+                ->get();
+
+        return $users;
+
     }
 }
