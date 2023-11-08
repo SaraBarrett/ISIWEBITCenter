@@ -10,8 +10,8 @@ class UserController extends Controller
 
         $cesaeInfo = $this->getCesaeInfo();
 
-        dd($cesaeInfo);
-        
+        ///dd($cesaeInfo);
+
         return view('users.all_users');
     }
 
