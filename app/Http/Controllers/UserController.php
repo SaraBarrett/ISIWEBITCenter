@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -30,7 +32,7 @@ class UserController extends Controller
                 ->where('id',$id)
                 ->first();
 
-        return view('users.view_user', compact('user'));
+        return view('users.add_user', compact('user'));
     }
 
     public function deleteUser($id){
@@ -47,7 +49,20 @@ class UserController extends Controller
     }
 
     public function storeUser(Request $request){
-        dd($request->all());
+       $request->validate([
+        'email' => 'required|unique:users|email',
+        'name' => 'string|max:50',
+        'password' => 'min:6'
+       ]);
+
+
+       User::insert([
+        'email' => $request->email,
+        'name' => $request->name,
+        'password' => Hash::make($request->password),
+       ]);
+
+       return redirect()->route('users.all');
     }
 
     protected function getCesaeInfo(){
