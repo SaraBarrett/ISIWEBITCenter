@@ -46,6 +46,10 @@ class UserController extends Controller
         return back();
     }
 
+    public function storeUser(Request $request){
+        dd($request->all());
+    }
+
     protected function getCesaeInfo(){
         $cesaeInfo = [
             'name' => 'Cesae',
