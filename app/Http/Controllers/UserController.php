@@ -24,6 +24,10 @@ class UserController extends Controller
         return view('users.add_user');
     }
 
+    public function viewUser(){
+        return view('users.view_user');
+    }
+
     protected function getCesaeInfo(){
         $cesaeInfo = [
             'name' => 'Cesae',
@@ -44,4 +48,6 @@ class UserController extends Controller
         return $users;
 
     }
+
+
 }

@@ -25,6 +25,7 @@ Route::get('/home', [HomeController::class, 'getMain'])->name('home');
 
 Route::get('/all-users', [UserController::class, 'getAllUsers'] )->name('users.all');
 Route::get('/add-user', [UserController::class, 'addUser'])->name('users.add');
+Route::get('/view-user', [UserController::class, 'viewUser'])->name('users.view');
 
 
 //todas as tarefas

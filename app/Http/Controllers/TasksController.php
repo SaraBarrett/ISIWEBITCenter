@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Task;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -11,7 +12,10 @@ class TasksController extends Controller
 
         $tasks = $this->allTasks();
 
-        //dd( $tasks);
+       /* $tasksFromModel = Task::get();
+
+        dd($tasksFromModel);*/
+
         return view('tasks.all_tasks', compact(
             'tasks'
         ));
@@ -19,8 +23,7 @@ class TasksController extends Controller
 
     protected function allTasks(){
 
-        $tasks = DB::table('tasks')
-                ->join('users', 'tasks.user_id','=', 'users.id')
+        $tasks = Task::join('users', 'tasks.user_id','=', 'users.id')
                 ->select('tasks.*', 'users.name as resname')
                 ->get();
 

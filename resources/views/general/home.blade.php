@@ -11,6 +11,9 @@
             <a href="{{ route('users.add') }}">
                 <li>Adicionar Utilizador</li>
             </a>
+            <a href="{{ route('tasks.all') }}">
+                <li>Todos as Tarefas</li>
+            </a>
         </ul>
         {{-- {{ $hello }} --}}
         <ul>

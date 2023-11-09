@@ -17,6 +17,7 @@
                     <th scope="col">Morada</th>
                     <th scope="col">Email</th>
                     <th scope="col">Password</th>
+                    <th scope="col"></th>
                 </tr>
             </thead>
             <tbody>
@@ -27,6 +28,9 @@
                         <td>{{ $user->address }}</td>
                         <td>{{ $user->email }}</td>
                         <td>{{ $user->password }}</td>
+                        <td><a href={{route('users.view') }} class="btn btn-info">Ver</a>
+                            <button type="button" class="btn btn-danger">Apagar</button>
+                        </td>
                     </tr>
                 @endforeach
 
