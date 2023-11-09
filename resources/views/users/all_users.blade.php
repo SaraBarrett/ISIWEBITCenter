@@ -28,7 +28,7 @@
                         <td>{{ $user->address }}</td>
                         <td>{{ $user->email }}</td>
                         <td>{{ $user->password }}</td>
-                        <td><a href={{route('users.view') }} class="btn btn-info">Ver</a>
+                        <td><a href="{{ route('users.view', $user->id) }}" class="btn btn-info">Ver</a>
                             <button type="button" class="btn btn-danger">Apagar</button>
                         </td>
                     </tr>

@@ -24,8 +24,13 @@ class UserController extends Controller
         return view('users.add_user');
     }
 
-    public function viewUser(){
-        return view('users.view_user');
+    public function viewUser($id){
+
+        $user = Db::table('users')
+                ->where('id',$id)
+                ->first();
+
+        return view('users.view_user', compact('user'));
     }
 
     protected function getCesaeInfo(){
