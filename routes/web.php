@@ -1,8 +1,9 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TasksController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,8 +27,8 @@ Route::get('/all-users', [UserController::class, 'getAllUsers'] )->name('users.a
 Route::get('/add-user', [UserController::class, 'addUser'])->name('users.add');
 
 
-
-
+//todas as tarefas
+Route::get('/all-tasks', [TasksController::class, 'getAllTasks'] )->name('tasks.all');
 
 Route::get('/hello', function () {
     return '<h2>Hello Turma SD</h2>';
