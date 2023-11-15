@@ -36,6 +36,8 @@ Route::get('/all-tasks', [TasksController::class, 'getAllTasks'] )->name('tasks.
 Route::get('/view-task/{id}', [TasksController::class, 'viewTask'])->name('tasks.view');
 Route::get('/delete-task/{id}', [TasksController::class, 'deleteTask'])->name('tasks.delete');
 
+Route::get('/add-task', [TasksController::class, 'addTask'])->name('tasks.add');
+Route::post('/store-task', [TasksController::class, 'storeTask'])->name('tasks.store');
 
 Route::get('/hello', function () {
     return '<h2>Hello Turma SD</h2>';

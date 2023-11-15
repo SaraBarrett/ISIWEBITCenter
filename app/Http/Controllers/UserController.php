@@ -80,7 +80,6 @@ class UserController extends Controller
                ]);
         }
 
-
        return redirect()->route('users.all');
     }
 
@@ -98,7 +97,7 @@ class UserController extends Controller
     }
 
     protected function allUsers(){
-        $users = db::table('users')
+        $users = DB::table('users')
                 ->get();
 
         return $users;
