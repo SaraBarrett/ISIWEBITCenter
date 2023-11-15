@@ -49,18 +49,31 @@ class UserController extends Controller
     }
 
     public function storeUser(Request $request){
-       $request->validate([
-        'email' => 'required|unique:users|email',
-        'name' => 'string|max:50',
-        'password' => 'min:6'
-       ]);
 
+        if($request->user_id){
+            $request->validate([
+                'name' => 'string|max:50',
+                'password' => 'min:6'
+               ]);
 
-       User::insert([
-        'email' => $request->email,
-        'name' => $request->name,
-        'password' => Hash::make($request->password),
-       ]);
+               User::updated([
+                'name' => $request->name,
+                'password' => Hash::make($request->password),
+               ]);
+        }else{
+            $request->validate([
+                'email' => 'required|unique:users|email',
+                'name' => 'string|max:50',
+                'password' => 'min:6'
+               ]);
+
+               User::insert([
+                'email' => $request->email,
+                'name' => $request->name,
+                'password' => Hash::make($request->password),
+               ]);
+        }
+
 
        return redirect()->route('users.all');
     }
