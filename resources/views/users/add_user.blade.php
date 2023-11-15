@@ -44,6 +44,14 @@
                     </div>
                 @enderror
             </div>
+            @if (isset($user))
+                <div class="mb-3">
+                    <label for="address" class="form-label">Morada</label>
+                    <input name="address" value="{{ isset($user) ? $user->address : '' }}" type="text"
+                        class="form-control">
+                </div>
+            @endif
+
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>

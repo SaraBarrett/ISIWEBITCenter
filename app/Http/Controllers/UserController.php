@@ -56,8 +56,10 @@ class UserController extends Controller
                 'password' => 'min:6'
                ]);
 
-               User::updated([
+               User::where('id', $request->user_id)
+               ->update([
                 'name' => $request->name,
+                'address' => $request->address,
                 'password' => Hash::make($request->password),
                ]);
         }else{
