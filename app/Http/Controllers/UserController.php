@@ -50,6 +50,9 @@ class UserController extends Controller
 
     public function storeUser(Request $request){
 
+        //validar se é update ou insert
+
+        //é update porque tem um id, o que quer dizer que já existe
         if($request->user_id){
             $request->validate([
                 'name' => 'string|max:50',
@@ -63,6 +66,7 @@ class UserController extends Controller
                 'password' => Hash::make($request->password),
                ]);
         }else{
+                //é insert porque NÂO tem um id, o que quer dizer que ainda Não existe
             $request->validate([
                 'email' => 'required|unique:users|email',
                 'name' => 'string|max:50',
