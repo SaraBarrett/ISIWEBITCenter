@@ -17,6 +17,11 @@
                 @endforeach
             </select>
         </form>
+        <form method="GET">
+            <input type="text" placeholder="Escreva o Email ou Nome" name="search"
+                value="{{ request()->query('search') }}">
+            <button>Procurar</button>
+        </form>
 
 
         <table class="table">

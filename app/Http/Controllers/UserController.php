@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Hash;
 class UserController extends Controller
 {
     public function getAllUsers(){
+        $search = request()->query('search') ? request()->query('search'): null;
 
         $cesaeInfo = $this->getCesaeInfo();
 
@@ -17,7 +18,11 @@ class UserController extends Controller
 
         if(request()->query('user_id')){
             $users = User::where('id', request()->query('user_id'))->get();
-
+        }elseif($search){
+            $users = User::where('name', "LIKE", "%{$search}%")
+            ->orWhere('email', "LIKE",  "%{$search}%")
+            ->orWhere('address', "LIKE",  "%{$search}%")
+            ->get();
         }else{
             $users =  $allUsers;
         }
