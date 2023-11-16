@@ -29,7 +29,11 @@ class TasksController extends Controller
                 ->select('tasks.*', 'users.name as resname')
                 ->first();
 
-        return view('tasks.view_task', compact('task'));
+        $users = DB::table('users')->get();
+
+        return view('tasks.view_task', compact('task',
+                            'users'
+        ));
     }
 
     public function deleteTask($id){
@@ -46,6 +50,26 @@ class TasksController extends Controller
         $users = DB::table('users')->get();
 
         return view('tasks.add_task', compact('users'));
+    }
+
+    public function updateTask(Request $request){
+
+        $request->validate([
+            'name' => 'required|string|max:50',
+            'description' =>'required|string',
+            'user_id' =>'required|string',
+           ]);
+
+           DB::table('tasks')
+           ->where('id', $request->task_id)
+           ->update([
+            'name' => $request->name,
+            'description' => $request->description,
+            'user_id' => $request->user_id,
+            'due_at' => $request->due_at,
+           ]);
+
+           return redirect()->route('tasks.all');
     }
 
     public function storeTask(Request $request){
@@ -69,7 +93,7 @@ class TasksController extends Controller
         $tasks = Task::join('users', 'tasks.user_id','=', 'users.id')
                 ->select('tasks.*', 'users.name as resname')
                 ->get();
-
+ 
         return $tasks;
 
     }

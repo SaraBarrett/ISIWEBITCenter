@@ -22,7 +22,7 @@
                         <td>{{ $item->status }}</td>
                         <td>{{ $item->due_at }}</td>
                         <td>{{ $item->resname }}</td>
-                        <td><a href="{{ route('tasks.view', $item->id) }}" class="btn btn-info">Ver</a>
+                        <td><a href="{{ route('tasks.view', $item->id) }}" class="btn btn-info">Ver / Editar</a>
                             <a href="{{ route('tasks.delete', $item->id) }}"type="button" class="btn btn-danger">Apagar</a>
                         </td>
                     </tr>

@@ -27,7 +27,6 @@ Route::get('/home', [HomeController::class, 'getMain'])->name('home');
 Route::get('/all-users', [UserController::class, 'getAllUsers'] )->name('users.all');
 Route::post('/store-user', [UserController::class, 'storeUser'])->name('users.store');
 Route::get('/delete-user/{id}', [UserController::class, 'deleteUser'])->name('users.delete');
-
 Route::get('/add-user', [UserController::class, 'addUser'])->name('users.add');
 Route::get('/view-user/{id}', [UserController::class, 'viewUser'])->name('users.view');
 
@@ -38,6 +37,8 @@ Route::get('/delete-task/{id}', [TasksController::class, 'deleteTask'])->name('t
 
 Route::get('/add-task', [TasksController::class, 'addTask'])->name('tasks.add');
 Route::post('/store-task', [TasksController::class, 'storeTask'])->name('tasks.store');
+
+Route::post('/update-task', [TasksController::class, 'updateTask'])->name('tasks.update');
 
 Route::get('/hello', function () {
     return '<h2>Hello Turma SD</h2>';

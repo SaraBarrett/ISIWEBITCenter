@@ -8,6 +8,16 @@
         <h5>Nome: {{ $cesaeInfo['name'] }}</h5>
         <h5>morada:{{ $cesaeInfo['address'] }}</h5>
         <h5>email:{{ $cesaeInfo['email'] }}</h5> --}}
+        <form method="GET">
+            <select name="user_id" id="" onchange="this.form.submit()">
+                <option value="">All Users</option>
+                @foreach ($allUsers as $item)
+                    <option @if ($item->id == request()->query('user_id')) selected @endif value="{{ $item->id }}">{{ $item->name }}
+                    </option>
+                @endforeach
+            </select>
+        </form>
+
 
         <table class="table">
             <thead>

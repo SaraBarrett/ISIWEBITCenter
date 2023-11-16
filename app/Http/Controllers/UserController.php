@@ -12,13 +12,22 @@ class UserController extends Controller
     public function getAllUsers(){
 
         $cesaeInfo = $this->getCesaeInfo();
-        $users = $this->allUsers();
+
+        $allUsers = $this->allUsers();
+
+        if(request()->query('user_id')){
+            $users = User::where('id', request()->query('user_id'))->get();
+
+        }else{
+            $users =  $allUsers;
+        }
 
         ///dd($cesaeInfo);
 
         return view('users.all_users',
         compact('cesaeInfo',
-        'users'
+        'users',
+        'allUsers'
     ));
     }
 
@@ -79,7 +88,6 @@ class UserController extends Controller
                 'password' => Hash::make($request->password),
                ]);
         }
-
        return redirect()->route('users.all');
     }
 
