@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\TasksController;
+use App\Http\Controllers\DashboardController;
+use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,6 +41,10 @@ Route::get('/add-task', [TasksController::class, 'addTask'])->name('tasks.add');
 Route::post('/store-task', [TasksController::class, 'storeTask'])->name('tasks.store');
 
 Route::post('/update-task', [TasksController::class, 'updateTask'])->name('tasks.update');
+
+
+//backoffice
+Route::get('/backoffice', [DashboardController::class, 'index'])->name('backoffice.index')->middleware('auth');
 
 Route::get('/hello', function () {
     return '<h2>Hello Turma SD</h2>';
