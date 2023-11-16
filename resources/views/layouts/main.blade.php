@@ -33,10 +33,24 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="{{ route('users.all') }}">Todos os Utilizadores</a></li>
+                            <li><a class="dropdown-item" href="{{ route('users.add') }}">Adicionar Utilizador</a></li>
+                        </ul>
+
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Tarefas
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="{{ route('tasks.all') }}">Todas os Tarefas</a></li>
+                            <li><a class="dropdown-item" href="{{ route('tasks.add') }}">Adicionar Tarefas</a></li>
+                        </ul>
+
                     </li>
                 </ul>
-                </li>
-                </ul>
+
+
                 <form class="d-flex" role="search">
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-success" type="submit">Search</button>
@@ -59,7 +73,6 @@
                 <a href="{{ route('login') }}"
                     class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Log
                     in</a>
-
                 @if (Route::has('register'))
                     <a href="{{ route('register') }}"
                         class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Register</a>

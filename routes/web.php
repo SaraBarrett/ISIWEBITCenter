@@ -31,7 +31,7 @@ Route::get('/add-user', [UserController::class, 'addUser'])->name('users.add');
 Route::get('/view-user/{id}', [UserController::class, 'viewUser'])->name('users.view');
 
 //Tarefas
-Route::get('/all-tasks', [TasksController::class, 'getAllTasks'] )->name('tasks.all');
+Route::get('/all-tasks', [TasksController::class, 'getAllTasks'] )->name('tasks.all')->middleware('auth');
 Route::get('/view-task/{id}', [TasksController::class, 'viewTask'])->name('tasks.view');
 Route::get('/delete-task/{id}', [TasksController::class, 'deleteTask'])->name('tasks.delete');
 

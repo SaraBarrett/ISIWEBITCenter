@@ -43,9 +43,12 @@
                         <td>{{ $user->address }}</td>
                         <td>{{ $user->email }}</td>
                         <td>{{ $user->password }}</td>
-                        <td><a href="{{ route('users.view', $user->id) }}" class="btn btn-info">Ver</a>
-                            <a href="{{ route('users.delete', $user->id) }}"type="button" class="btn btn-danger">Apagar</a>
-                        </td>
+
+                        @auth
+                            <td><a href="{{ route('users.view', $user->id) }}" class="btn btn-info">Ver</a>
+                                <a href="{{ route('users.delete', $user->id) }}"type="button" class="btn btn-danger">Apagar</a>
+                            </td>
+                        @endauth
                     </tr>
                 @endforeach
 
