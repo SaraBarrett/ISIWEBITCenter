@@ -11,8 +11,6 @@
 </head>
 
 <body>
-
-
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">Navbar</a>
@@ -47,6 +45,10 @@
                             <li><a class="dropdown-item" href="{{ route('tasks.add') }}">Adicionar Tarefas</a></li>
                         </ul>
 
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page"
+                            href="{{ route('backoffice.index') }}">Backoffice</a>
                     </li>
                 </ul>
             </div>

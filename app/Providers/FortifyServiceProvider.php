@@ -36,5 +36,9 @@ class FortifyServiceProvider extends ServiceProvider
             Limit::perMinute(5);
         });
 
+        Fortify::requestPasswordResetLinkView(function () {
+            return view('auth.forgot-password');
+        });
+
     }
 }
