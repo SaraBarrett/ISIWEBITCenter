@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\GiftController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\TasksController;
@@ -43,12 +44,22 @@ Route::post('/store-task', [TasksController::class, 'storeTask'])->name('tasks.s
 Route::post('/update-task', [TasksController::class, 'updateTask'])->name('tasks.update');
 
 
+//gifts
+Route::get('/all-gifts', [GiftController::class, 'allGifts'])->name('gifts.all');
+
+Route::get('/add-gift', [GiftController::class, 'addGift'])->name('gifts.add');
+Route::post('/store-gift', [GiftController::class, 'storeGift'])->name('gifts.store');
+
+Route::get('/view-gift/{id}', [GiftController::class, 'viewGift'])->name('gifts.view');
+Route::post('/update_p-gift', [GiftController::class, 'updatePGift'])->name('gifts.update_p');
+
 //backoffice
 Route::get('/backoffice', [DashboardController::class, 'index'])->name('backoffice.index')->middleware('auth');
 
 Route::get('/hello', function () {
     return '<h2>Hello Turma SD</h2>';
 })->name('cucu');
+
 
 
 //rota fallback (em vez do erro 404)
