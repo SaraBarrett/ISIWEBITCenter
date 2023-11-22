@@ -42,7 +42,7 @@ class GiftController extends Controller
         Gift::where('id', $request->id)
             ->update([
             'name'=> $request->name,
-            'price'=> $request->price,
+            'estimated_price'=> $request->price,
             'real_cost'=> $request->real_cost,
             'user_id'=>$request->user_id,
         ]);
@@ -59,7 +59,7 @@ class GiftController extends Controller
         DB::table('gifts')
             ->insert([
             'name'=> $request->name,
-            'price'=> $request->price,
+            'price'=> $request->estimated_price,
             'user_id'=>$request->user_id,
         ]);
 

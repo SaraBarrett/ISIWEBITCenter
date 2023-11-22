@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
@@ -63,7 +64,7 @@ class UserController extends Controller
     }
 
     public function storeUser(Request $request){
-        dd($request->photo);
+        //dd($request->photo);
         //validar se é update ou insert
 
         //é update porque tem um id, o que quer dizer que já existe
@@ -72,12 +73,17 @@ class UserController extends Controller
                 'name' => 'string|max:50',
                 'password' => 'min:6'
                ]);
+               $photo = null;
+               if($request->hasFile('photo')){
+                $photo = Storage::putFile('userPhotos', $request->photo);
+               }
 
                User::where('id', $request->user_id)
                ->update([
                 'name' => $request->name,
                 'address' => $request->address,
                 'password' => Hash::make($request->password),
+                'photo' => $photo,
                ]);
         }else{
                 //é insert porque NÂO tem um id, o que quer dizer que ainda Não existe

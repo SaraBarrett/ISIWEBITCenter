@@ -28,6 +28,7 @@
             <thead>
                 <tr>
                     <th scope="col">#</th>
+                    <th scope="col"></th>
                     <th scope="col">Nome</th>
                     <th scope="col">Morada</th>
                     <th scope="col">Email</th>
@@ -39,6 +40,9 @@
                 @foreach ($users as $user)
                     <tr>
                         <th scope="row">{{ $user->id }}</th>
+                        <td><img width="50px" height="50px"
+                                src="{{ $user->photo ? asset('storage/' . $user->photo) : asset('images/nophoto.jpg') }}"
+                                alt=""></td>
                         <td>{{ $user->name }}</td>
                         <td>{{ $user->address }}</td>
                         <td>{{ $user->email }}</td>

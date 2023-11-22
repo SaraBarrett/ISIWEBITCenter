@@ -25,7 +25,7 @@
                     <tr>
                         <td scope="row">{{ $item->id }}</td>
                         <td>{{ $item->name }}</td>
-                        <td>{{ $item->price }}</td>
+                        <td>{{ $item->estimated_price }}</td>
                         <td>{{ $item->giftowner }}</td>
                         <td>{{ $item->difference }}</td>
                         <td><a href="{{ route('gifts.view', $item->id) }}" class="btn btn-info">Ver / Editar</a></td>
