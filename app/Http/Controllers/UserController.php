@@ -63,7 +63,7 @@ class UserController extends Controller
     }
 
     public function storeUser(Request $request){
-
+        dd($request->photo);
         //validar se é update ou insert
 
         //é update porque tem um id, o que quer dizer que já existe

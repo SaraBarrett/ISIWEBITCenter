@@ -11,7 +11,7 @@
         @endif
 
 
-        <form method="POST" action="{{ route('users.store') }}">
+        <form method="POST" action="{{ route('users.store') }}" enctype="multipart/form-data">
             @csrf
 
             <input type="hidden" name="user_id" value="{{ isset($user) ? $user->id : null }}">
@@ -51,7 +51,14 @@
                         class="form-control">
                 </div>
             @endif
-
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Photo</label>
+                <input name="photo" value="" type="file" class="form-control" id="photo"
+                    aria-describedby="emailHelp" required>
+                @error('photo')
+                    Pf coloque uma photo
+                @enderror
+            </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>
