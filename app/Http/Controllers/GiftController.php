@@ -6,6 +6,7 @@ use App\Models\Gift;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class GiftController extends Controller
 {
@@ -39,12 +40,18 @@ class GiftController extends Controller
             'user_id' => 'required',
         ]);
 
+        $photo = null;
+        if($request->hasFile('photo')){
+            $photo = Storage::putFile('gifts', $request->photo);
+        }
+
         Gift::where('id', $request->id)
             ->update([
             'name'=> $request->name,
             'estimated_price'=> $request->price,
             'real_cost'=> $request->real_cost,
             'user_id'=>$request->user_id,
+            'photo'=>$photo,
         ]);
 
         return redirect()->route('gifts.all')->with('message', 'Prenda actualizada com sucesso!');
@@ -75,7 +82,7 @@ class GiftController extends Controller
     private function getAllGifts(){
 
         $gifts = Gift::join('users', 'users.id', '=', 'gifts.user_id')
-        ->select('gifts.id', 'gifts.name', 'gifts.real_cost',  'gifts.estimated_price', 'gifts.status as status', 'users.name as giftowner')
+        ->select('gifts.id', 'gifts.name', 'gifts.real_cost',  'gifts.estimated_price', 'gifts.status as status', 'users.name as giftowner', 'gifts.photo')
         ->get();
 
 

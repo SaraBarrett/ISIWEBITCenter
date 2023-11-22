@@ -2,7 +2,7 @@
 @section('content')
     <div class="container">
         <h2>ver prenda</h2>
-        <form method="POST" action="{{ route('gifts.update_p') }}">
+        <form method="POST" action="{{ route('gifts.update_p') }}" enctype="multipart/form-data">
             @csrf
             <input type="hidden" value="{{ $gift->id }}" name="id">
             <div class="mb-3">
@@ -40,6 +40,14 @@
                             {{ $user->name }}</option>
                     @endforeach
                 </select>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Photo</label>
+                <input required name="photo" value="" type="file" accept="image/*" class="form-control"
+                    id="photo" aria-describedby="emailHelp">
+                @error('photo')
+                    <p>Erro de photo
+                    @enderror
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>

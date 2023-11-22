@@ -53,7 +53,7 @@
             @endif
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Photo</label>
-                <input name="photo" value="{{ $user ? $user->photo : '' }}" type="file" class="form-control"
+                <input name="photo" value="{{  isset($user) ? $user->photo : '' }}" type="file" class="form-control"
                     id="photo" aria-describedby="emailHelp" required>
                 @error('photo')
                     Pf coloque uma photo

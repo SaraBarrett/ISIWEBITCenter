@@ -13,6 +13,7 @@
             <thead>
                 <tr>
                     <th scope="col">ID</th>
+                    <td></td>
                     <th scope="col">Nome</th>
                     <th scope="col">Preço</th>
                     <th>Detentor da Prenda</th>
@@ -24,6 +25,9 @@
                 @foreach ($gifts as $item)
                     <tr>
                         <td scope="row">{{ $item->id }}</td>
+                        <td><img width="50px" height="50px"
+                                src="{{ $item->photo ? asset('storage/' . $item->photo) : asset('images/nophoto.jpg') }}"
+                                alt=""></td>
                         <td>{{ $item->name }}</td>
                         <td>{{ $item->estimated_price }}</td>
                         <td>{{ $item->giftowner }}</td>
