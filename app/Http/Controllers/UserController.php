@@ -28,7 +28,7 @@ class UserController extends Controller
             $users =  $allUsers;
         }
 
-        ///dd($cesaeInfo);
+
 
         return view('users.all_users',
         compact('cesaeInfo',
